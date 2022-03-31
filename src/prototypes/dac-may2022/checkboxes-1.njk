@@ -1,6 +1,5 @@
 ---
-group: Examples
-title: Example prototype
+title: Borderless checkboxes and revealed radios
 layout: dac-may2022/views/_master
 ---
 {% from "components/input/_macro.njk" import onsInput %}
@@ -8,10 +7,11 @@ layout: dac-may2022/views/_master
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}  
 
+{% set prevPage = 'index' %}
 {% set form =  {
     "method": "GET",
     "attributes": {
-        "action":  pageInfo.rootPath + "/x.html"
+        "action":  pageInfo.rootPath + "/checkboxes-2.html"
     }
 } %}
 
@@ -31,31 +31,15 @@ layout: dac-may2022/views/_master
                 "borderless": true,
                 "checkboxes": [
                     {
-                        "id": "post",
-                        "label": {
-                            "text": "By post"
-                        },
-                        "value": "post"
-                    },
-                    {
                         "id": "email",
                         "label": {
-                            "text": "By email"
-                        },
-                        "value": "email",
-                        "other": {
-                            "id": "email-address",
-                            "name": "email-address",
-                            "width": 20,
-                            "label": {
-                                "text": "Enter your email address"
-                            }
+                            "text": "Email"
                         }
                     },
                     {
                         "id": "phone",
                         "label": {
-                            "text": "By phone"
+                            "text": "Phone"
                         },
                         "value": "phone",
                         "other": {
@@ -93,6 +77,12 @@ layout: dac-may2022/views/_master
                                     }
                                 }
                             ]
+                        }
+                    },
+                    {
+                        "id": "text-message",
+                        "label": {
+                            "text": "Text message"
                         }
                     }
                 ]

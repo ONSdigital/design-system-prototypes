@@ -1,0 +1,377 @@
+---
+title: Simple accordion, revealed checkboxes and document list
+layout: dac-may2022/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "./components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/accordion/_macro.njk" import onsAccordion %}
+
+{% set prevPage = 'checkboxes-2' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/radios-1.html"
+    }
+} %}
+
+{% block main %}
+    <h1 class="ons-u-fs-m">Filter results</h1>
+
+
+    {% set content1 %}
+    {{
+        onsCheckboxes({
+            "legend": "Content type",
+            "legendClasses": "ons-u-vh",
+            "classes": 'ons-u-mb-m',
+            "checkboxesLabel": "Show only:",
+            "borderless": true,
+            "name": "content-type",
+            "checkboxes": [
+                {
+                    "id": "data",
+                    "label": {
+                        "text": "Data (309)"
+                    },
+                    "value": "data",
+                    "other": {
+                        "otherType": "checkboxes",
+                        "legend": "Data type",
+                        "legendClasses": "ons-u-vh",
+                        "name": "data-type",
+                        "checkboxes": [
+                            {
+                                "id": "census-data",
+                                "label": {
+                                    "text": "Census data (0)"
+                                },
+                                "value": "census-data"
+                            },
+                            {
+                                "id": "datasets",
+                                "label": {
+                                    "text": "Datasets (117)"
+                                },
+                                "value": "datasets"
+                            },
+                            {
+                                "id": "time-series",
+                                "label": {
+                                    "text": "Time series (12)"
+                                },
+                                "value": "time-series"
+                            },
+                            {
+                                "id": "user-requested-data",
+                                "label": {
+                                    "text": "User requested data (180)"
+                                },
+                                "value": "user-requested-data"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "publications",
+                    "label": {
+                        "text": "Publications (115)"
+                    },
+                    "value": "publications",
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Publication type",
+                        "legendClasses": "ons-u-vh",
+                        "name": "publication-type",
+                        "checkboxes": [
+                            {
+                                "id": "articles",
+                                "label": {
+                                    "text": "Articles (49)"
+                                },
+                                "value": "articles"
+                            },
+                            {
+                                "id": "bulletins",
+                                "label": {
+                                    "text": "Bulletins (62)"
+                                },
+                                "value": "bulletins"
+                            },
+                            {
+                                "id": "methodology",
+                                "label": {
+                                    "text": "Methodology (4)"
+                                },
+                                "value": "methodology"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "areas",
+                    "label": {
+                        "text": "Areas (0)"
+                    },
+                    "value": "areas"
+                },
+                {
+                    "id": "freedom-of-information-requests",
+                    "label": {
+                        "text": "Freedom of information requests (26)"
+                    },
+                    "value": "freedom-of-information-requests"
+                },
+                {
+                    "id": "other",
+                    "label": {
+                        "text": "Other (35)"
+                    },
+                    "value": "other"
+                }
+            ]
+        })
+    }}
+    {% endset %}
+
+    {% set content2 %}
+        {{
+        onsCheckboxes({
+            "legend": "Topic",
+            "legendClasses": "ons-u-vh",
+            "checkboxesLabel": "Show only:",
+            "borderless": true,
+            "name": "dietary",
+            "checkboxes": [
+                {
+                    "id": "business",
+                    "label": {
+                        "text": "Business (660)"
+                    },
+                    "value": "business",
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Business subtopics",
+                        "legendClasses": "ons-u-vh",
+                        "name": "business-subtopics",
+                        "checkboxes": [
+                            {
+                                "id": "construction",
+                                "label": {
+                                    "text": "Construction (7)"
+                                },
+                                "value": "construction"
+                            },
+                            {
+                                "id": "manufacturing",
+                                "label": {
+                                    "text": "Manufacturing (124)"
+                                },
+                                "value": "manufacturing"
+                            },
+                            {
+                                "id": "retail",
+                                "label": {
+                                    "text": "Retail (195)"
+                                },
+                                "value": "retail"
+                            },
+                            {
+                                "id": "tech",
+                                "label": {
+                                    "text": "Technology (152)"
+                                },
+                                "value": "tech"
+                            },
+                            {
+                                "id": "tourism",
+                                "label": {
+                                    "text": "Tourism (182)"
+                                },
+                                "value": "tourism"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "economy",
+                    "label": {
+                        "text": "Economy (341)"
+                    },
+                    "value": "economy",
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Economy subtopics",
+                        "legendClasses": "ons-u-vh",
+                        "name": "economy-subtopics",
+                        "checkboxes": [
+                            {
+                                "id": "output-and-productivity",
+                                "label": {
+                                    "text": "Output and productivity (13)"
+                                },
+                                "value": "output-and-productivity"
+                            },
+                            {
+                                "id": "environmental-accounts",
+                                "label": {
+                                    "text": "Environmental accounts (7)"
+                                },
+                                "value": "environmental-accounts"
+                            },
+                            {
+                                "id": "tax",
+                                "label": {
+                                    "text": "Tax (83)"
+                                },
+                                "value": "tax"
+                            },
+                            {
+                                "id": "tech",
+                                "label": {
+                                    "text": "Technology (152)"
+                                },
+                                "value": "tech"
+                            },
+                            {
+                                "id": "gdp",
+                                "label": {
+                                    "text": "Gross Domestic Product (GDP) (182)"
+                                },
+                                "value": "gdp"
+                            },
+                            {
+                                "id": "gva",
+                                "label": {
+                                    "text": "Gross Value Added (GVA) (24)"
+                                },
+                                "value": "gva"
+                            },
+                            {
+                                "id": "investments-and-pensions",
+                                "label": {
+                                    "text": "Investments and pensions (35)"
+                                },
+                                "value": "investments-and-pensions"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "Employment",
+                    "label": {
+                        "text": "Employment (172)"
+                    },
+                    "value": "Employment",
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Employment subtopics",
+                        "legendClasses": "ons-u-vh",
+                        "name": "name",
+                        "checkboxes": [
+                            {
+                                "id": "employment",
+                                "label": {
+                                    "text": "Employment (126)"
+                                },
+                                "value": "Employment"
+                            },
+                            {
+                                "id": "Unemployment",
+                                "label": {
+                                    "text": "Unemployment (46)"
+                                },
+                                "value": "Unemployment"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "people-and-community",
+                    "label": {
+                        "text": "People, population and community (1570)"
+                    },
+                    "value": "people-and-community",
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Publication type",
+                        "legendClasses": "ons-u-vh",
+                        "name": "name",
+                        "checkboxes": [
+                            {
+                                "id": "births-deaths-and-marriages",
+                                "label": {
+                                    "text": "Births, deaths and marriages (410)"
+                                },
+                                "value": "births-deaths-and-marriages"
+                            },
+                            {
+                                "id": "crime-and-justice",
+                                "label": {
+                                    "text": "Crime and justice (203)"
+                                },
+                                "value": "crime-and-justice"
+                            },
+                            {
+                                "id": "education-and-childcare",
+                                "label": {
+                                    "text": "Education and childcare (367)"
+                                },
+                                "value": "education-and-childcare"
+                            },
+                            {
+                                "id": "elections",
+                                "label": {
+                                    "text": "Elections (145)"
+                                },
+                                "value": "elections"
+                            },
+                            {
+                                "id": "health-and-social-care",
+                                "label": {
+                                    "text": "Health and social care (445)"
+                                },
+                                "value": "health-and-social-care"
+                            }
+                        ]
+                    }
+                }
+            ]
+        })
+    }}
+    {% endset %}
+
+    <div class="ons-grid">
+        <div class="ons-grid__col ons-col-6@xs">
+            {{
+                onsAccordion({
+                    "id": "accordion",
+                    "variants": "simple",
+                    "open": true,
+                    "itemsList": [
+                        {
+                            "title": "Content type",
+                            "content": content1
+                        },
+                        {
+                            "title": "Topic",
+                            "content": content2
+                        }
+                    ]
+                })
+            }}
+            {{
+                onsButton({
+                    "text": 'Filter',
+                    "classes": 'ons-u-mt-m'
+                })
+            }}
+        </div>
+    </div>
+{% endblock %}

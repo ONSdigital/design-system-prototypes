@@ -1,0 +1,86 @@
+---
+title: Mutually exclusive and panel
+layout: dac-may2022/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "./components/checkboxes/_macro.njk" import onsCheckboxes %}
+
+{% set prevPage = 'radios-2' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/input-1.html"
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "What type of central heating do you have?",
+        "guidance": {
+            "content": '<p>Include all central heating systems that generate heat for multiple rooms, whether or not the system is used</p>'
+        },
+        "submitButton": true
+    }) %}
+        {{
+            onsCheckboxes({
+                "id": "central-heating-answers",
+                "legend": 'What type of central heating do you have?',
+                "legendClasses": 'ons-u-vh',
+                "checkboxesLabel": "Select all that apply",
+                "name": "mutually-exclusive",
+                "checkboxes": [
+                    {
+                        "id": "gas",
+                        "label": {
+                            "text": "Gas"
+                        },
+                        "value": "gas"
+                    },
+                    {
+                        "id": "electric",
+                        "label": {
+                            "text": "Electric"
+                        },
+                        "value": "electric"
+                    },
+                    {
+                        "id": "solid-fuel",
+                        "label": {
+                            "text": "Solid fuel"
+                        },
+                        "value": "solid-fuel"
+                    },
+                    {
+                        "id": "other-fuel",
+                        "label": {
+                            "text": "Other"
+                        },
+                        "value": "other",
+                        "other": {
+                            "id": "other-fuel-textbox",
+                            "name": "other-fuel-answer",
+                            "label": {
+                            "text": "Specify type of central heating"
+                            }
+                        }
+                    }
+                ],
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will unselect all other checkboxes",
+                    "deselectGroupAdjective": "deselected",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "no-central-heating",
+                        "label": {
+                            "text": "No central heating"
+                        },
+                        "value": "no-central-heating"
+                    }
+                }
+            })
+        }}
+    {% endcall %}
+{% endblock %}

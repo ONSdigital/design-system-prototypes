@@ -1,9 +1,24 @@
 ---
 group: Accessibility auditing (DAC)
 title: May 2022
-layout: dac-may2022/views/_master
 ---
 {% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "header": {
+        "logoHref": '/',
+        "titleLogoHref": pageInfo.rootPath + '#0'
+    },
+    "title": "Prototype example",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
 
 {% block main %}
     <h1>Start prototype</h1>
@@ -12,7 +27,7 @@ layout: dac-may2022/views/_master
         onsButton({
             "text": "Start prototype",
             "classes": "ons-u-mt-l",
-            "url": pageInfo.rootPath + "/checkboxes.html"
+            "url": pageInfo.rootPath + "/checkboxes-1.html"
         })
     }}
 {% endblock %}

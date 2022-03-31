@@ -1,0 +1,386 @@
+---
+title: Tabs and sortable and scrollable tables
+layout: dac-may2022/views/_master
+columns: 12
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/table/_macro.njk" import onsTable %}
+{% from "components/tabs/_macro.njk" import onsTabs %}
+
+{% set prevPage = 'text-area-1' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/"
+    }
+} %}
+{% set pageConfig = {
+    "mainCol": {
+        "columns": '12'
+    }
+} %}
+
+{% block main %}
+
+    {% set tab1Content %}
+    {{
+        onsTable({
+            "variants": [ 'sortable' ],
+            "caption": "Sortable table",
+            "sortBy": "Sort by",
+            "ariaAsc": "ascending",
+            "ariaDesc": "descending",
+            "ths": [
+                    {
+                        "value": "ID",
+                        "ariaSort": "none"
+                    },
+                    {
+                        "value": "Title",
+                        "ariaSort": "none"
+                    },
+                    {
+                        "value": "Abbr",
+                        "ariaSort": "none"
+                    },
+                    {
+                        "value": "Legal basis",
+                        "ariaSort": "none"
+                    },
+                    {
+                        "value": "Frequency",
+                        "ariaSort": "none"
+                    },
+                    {
+                        "value": "Date",
+                        "ariaSort": "none"
+                    },
+                    {
+                        "value": "Status",
+                        "ariaSort": "none"
+                    }
+                ],
+                "trs": [
+                    {
+                        "tds": [
+                            {
+                                "value": "023"
+                            },
+                            {
+                                "value": '<a href="#0">Monthly Business Survey - Retail Sales Index</a>'
+                            },
+                            {
+                                "value": "RSI"
+                            },
+                            {
+                                "value": "Statistics of Trade Act 1947"
+                            },
+                            {
+                                "value": "Monthly",
+                                "dataSort": "1"
+                            },
+                            {
+                                "value": "20 Jan 2018",
+                                "dataSort": "2018-01-20"
+                            },
+                            {
+                                "value": "<span class='ons-status ons-status--success'>Ready</span>",
+                                "dataSort": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "tds": [
+                            {
+                                "value": "112"
+                            },
+                            {
+                                "value": '<a href="#0">Annual Inward Foreign Direct Investment Survey</a>'
+                            },
+                            {
+                                "value": "AIFDI"
+                            },
+                            {
+                                "value": "Statistics of Trade Act 1947"
+                            },
+                            {
+                                "value": "Annually",
+                                "dataSort": "12"
+                            },
+                            {
+                                "value": "26 Feb 2018",
+                                "dataSort": "2018-02-26"
+                            },
+                            {
+                                "value": "<span class='ons-status ons-status--dead'>Not ready</span>",
+                                "dataSort": "1"
+                            }
+                        ]
+                    },
+                    {
+                        "tds": [
+                            {
+                                "value": "332"
+                            },
+                            {
+                                "value": '<a href="#0">Business Register and Employment Survey</a>'
+                            },
+                            {
+                                "value": "BRES"
+                            },
+                            {
+                                "value": "Statistics of Trade Act 1947"
+                            },
+                            {
+                                "value": "Annually",
+                                "dataSort": "12"
+                            },
+                            {
+                                "value": "23 Jan 2013",
+                                "dataSort": "2013-01-23"
+                            },
+                            {
+                                "value": "<span class='ons-status ons-status--info'>In progress</span>",
+                                "dataSort": "2"
+                            }
+                        ]
+                    },
+                    {
+                        "tds": [
+                            {
+                                "value": "654"
+                            },
+                            {
+                                "value": '<a href="#0">Quartely Survey of Building Materials Sand and Gravel</a>'
+                            },
+                            {
+                                "value": "QBMS"
+                            },
+                            {
+                                "value": "Statistics of Trade Act 1947 - BEIS"
+                            },
+                            {
+                                "value": "Quartely",
+                                "dataSort": "3"
+                            },
+                            {
+                                "value": "24 Jan 2015",
+                                "dataSort": "2015-01-24"
+                            },
+                            {
+                                "value": "<span class='ons-status ons-status--error'>Issue</span>",
+                                "dataSort": "3"
+                            }
+                        ]
+                    },
+                    {
+                        "tds": [
+                            {
+                                "value": "765"
+                            },
+                            {
+                                "value": '<a href="#0">Monthly Survey of Building Materials Concrete Building Blocks</a>'
+                            },
+                            {
+                                "value": "MSBB"
+                            },
+                            {
+                                "value": "Voluntary"
+                            },
+                            {
+                                "value": "Monthly",
+                                "dataSort": "1"
+                            },
+                            {
+                                "value": "25 Jan 2014",
+                                "dataSort": "2014-01-25"
+                            },
+                            {
+                                "value": "<span class='ons-status ons-status--success'>Ready</span>",
+                                "dataSort": "0"
+                            }
+                        ]
+                    }
+                ]
+        })
+    }}
+    {% endset %}
+
+    {% set tab2Content %}
+    {{
+        onsTable({
+            "variants": 'scrollable',
+            "caption": "Scrollable table",
+            "ariaLabel": "There are 7 columns in this table. Some of the table may be off screen. Scroll or drag horizontally to bring into view.",
+            "ths": [
+                {
+                    "value": "ID"
+                },
+                {
+                    "value": "Title"
+                },
+                {
+                    "value": "Abbreviation"
+                },
+                {
+                    "value": "Legal basis"
+                },
+                {
+                    "value": "Frequency"
+                },
+                {
+                    "value": "Date"
+                },
+                {
+                    "value": "Status"
+                }
+            ],
+            "trs": [
+                {
+                    "tds": [
+                        {
+                            "value": "023"
+                        },
+                        {
+                            "value": "Monthly Business Survey - Retail Sales Index"
+                        },
+                        {
+                            "value": "RSI"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947"
+                        },
+                        {
+                            "value": "Monthly"
+                        },
+                        {
+                            "value": "20 Jan 2018"
+                        },
+                        {
+                            "value": "<span class='ons-status ons-status--success'>Ready</span>"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "112"
+                        },
+                        {
+                            "value": "Annual Inward Foreign Direct Investment Survey"
+                        },
+                        {
+                            "value": "AIFDI"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947"
+                        },
+                        {
+                            "value": "Annually"
+                        },
+                        {
+                            "value": "26 Feb 2018"
+                        },
+                        {
+                            "value": "<span class='ons-status ons-status--dead'>Not ready</span>"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "332"
+                        },
+                        {
+                            "value": "Business Register and Employment Survey"
+                        },
+                        {
+                            "value": "BRES"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947"
+                        },
+                        {
+                            "value": "Annually"
+                        },
+                        {
+                            "value": "23 Jan 2013"
+                        },
+                        {
+                            "value": "<span class='ons-status ons-status--info'>In progress</span>"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "654"
+                        },
+                        {
+                            "value": "Quartely Survey of Building Materials Sand and Gravel"
+                        },
+                        {
+                            "value": "QBMS"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947 - BEIS"
+                        },
+                        {
+                            "value": "Quartely"
+                        },
+                        {
+                            "value": "24 Jan 2015"
+                        },
+                        {
+                            "value": "<span class='ons-status ons-status--error'>Issue</span>"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "765"
+                        },
+                        {
+                            "value": "Monthly Survey of Building Materials Concrete Building Blocks"
+                        },
+                        {
+                            "value": "MSBB"
+                        },
+                        {
+                            "value": "Voluntary"
+                        },
+                        {
+                            "value": "Monthly"
+                        },
+                        {
+                            "value": "25 Jan 2014"
+                        },
+                        {
+                            "value": "<span class='ons-status ons-status--success'>Ready</span>"
+                        }
+                    ]
+                }
+            ]
+        })
+    }}
+    {% endset %}
+
+    {{
+        onsTabs({
+            "title": 'Tabs title',
+            "tabs": [
+                {
+                    "title": 'Sortable table',
+                    "content": tab1Content
+                },
+                {
+                    "title": 'Scrollable table',
+                    "content": tab2Content
+                }
+            ]
+        })
+    }}
+{% endblock %}

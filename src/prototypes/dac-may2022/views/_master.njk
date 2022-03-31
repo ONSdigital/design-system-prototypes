@@ -5,7 +5,7 @@
         "logoHref": '/',
         "titleLogoHref": pageInfo.rootPath + '#0'
     },
-    "title": "Prototype example",
+    "title": pageInfo.title if pageInfo.title else "DAC audit prototype - May 2022",
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
@@ -23,6 +23,9 @@
                 "text": 'Previous'
             }
         ]
+    },
+    "mainCol": {
+        "columns": pageInfo.columns if pageInfo.columns else '8'
     }
 } %}
 

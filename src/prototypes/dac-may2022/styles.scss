@@ -19,3 +19,8 @@ Do not remove. Required for dynamic generation of survey summary page
 }
 /***********************************************************************/
 /***********************************************************************/
+
+.ons-tab--row[aria-selected=true]:after {
+  bottom: -2px;
+  height: 2px;
+}

@@ -1,0 +1,40 @@
+---
+title: Text input with character limit
+layout: dac-may2022/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% set prevPage = 'mutually-exclusive-1' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/text-area-1.html"
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "What is your job title?",
+        "legendIsQuestionTitle": true,
+        "submitButton": true
+    }) %}
+        {{
+            onsInput({
+                "id": "text",
+                "label": {
+                    "text": "Job title"
+                },
+                "width": "10",
+                "charCheckLimit": {
+                    "limit": 10,
+                    "charCountOverLimitSingular": "{x} character too many",
+                    "charCountOverLimitPlural": "{x} characters too many",
+                    "charCountSingular": "You have {x} character remaining",
+                    "charCountPlural": "You have {x} characters remaining"
+                }
+            })
+        }}
+    {% endcall %}
+{% endblock %}
