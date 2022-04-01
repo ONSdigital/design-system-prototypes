@@ -20,7 +20,40 @@ Do not remove. Required for dynamic generation of survey summary page
 /***********************************************************************/
 /***********************************************************************/
 
-.ons-tab--row[aria-selected=true]:after {
+// Tabs - overrides to fix https://github.com/onsdigital/design-system/issues/1677
+.ons-tab--row[aria-selected=true]::after {
   bottom: -2px;
   height: 2px;
+}
+
+.ons-tab--row[aria-selected=true]:focus::after {
+  background-color: $color-focus;
+}
+
+.ons-tabs__title {
+  @extend .ons-u-fs-r--b;
+}
+
+// Table of contents - overrides for sticky ToC
+.ons-page {
+  overflow-x: visible;
+}
+
+// Headings - overrides for heading top margins
+.ons-page__body section:not(:first-child) {
+  margin-top: 2.5rem;
+}
+
+.ons-page__body {
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+  }
+}
+
+// Tables - Util class for align bottom
+.ons-u-va-b {
+  vertical-align: bottom;
 }

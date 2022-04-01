@@ -1,0 +1,80 @@
+---
+title: Guide page table of contents
+layout: dac-may2022/views/_master
+---
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{% set prevPage = 'guide-3' %}
+
+{% block main %}
+    <h1 class="ons-u-mb-l">
+        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">About the census</span> 
+        <span class="ons-u-vh">: </span>
+        <span class="ons-u-fs-xxl ons-u-db">Past censuses in England and Wales</span>
+    </h1>
+    {{-
+        onsTableOfContents({
+            "ariaLabel": "Pages in this guide",
+            "title": "Contents",
+            "skipLink": {
+                "url": "#section-content",
+                "text": "Skip to guide content"
+            },
+            "itemsList": [
+                {
+                    "url": pageInfo.rootPath + '/guide-2.html',
+                    "text": 'Overview'
+                },
+                {
+                    "url": pageInfo.rootPath + '/guide-3.html',
+                    "text": 'Who should take part and why'
+                },
+                {
+                    "url": pageInfo.rootPath + '/guide-4.html',
+                    "text": 'How your information is used'
+                },
+                {
+                    "url": pageInfo.rootPath + '/guide-5.html',
+                    "text": 'Past censuses in England and Wales',
+                    "current": true
+                }
+            ]
+        })
+    }}
+    <section id="section-content" class="ons-page__body">
+        <p>The census is a survey that happens every 10 years and gives us a picture of all the people and households in England and Wales. There have been censuses for over 200 years.</p>
+        
+        <p>The answers from past censuses give us a detailed snapshot of the population in one single moment.</p>
+
+        <p>At the Office for National Statistics (ONS), we keep census records secure for 100 years. Only then can future generations see them.</p>
+
+        <div class="ons-u-mt-xl">
+            {{-
+            onsContentPagination({
+                "contentPaginationItems": [
+                    {
+                        "rel": 'prev',
+                        "text": 'Previous',
+                        "url": pageInfo.rootPath + '/guide-4.html',
+                        "label": 'How your information is used'
+                    }
+                    ]
+                })
+            }}
+        </div>
+    </section>
+
+    <div class="ons-container ons-u-mb-l ons-u-bt">
+    {{
+        onsButton({
+            "text": 'Continue',
+            "classes": 'ons-u-mt-m',
+            "url": pageInfo.rootPath + '/guide-2.html'
+        })
+    }}
+    </div>
+{% endblock %}

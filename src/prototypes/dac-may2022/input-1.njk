@@ -18,13 +18,18 @@ layout: dac-may2022/views/_master
     {% call onsQuestion({
         "title": "What is your job title?",
         "legendIsQuestionTitle": true,
-        "submitButton": true
+        "submitButton": {
+             "text": 'Continue'
+        }
     }) %}
         {{
             onsInput({
                 "id": "text",
                 "label": {
                     "text": "Job title"
+                },
+                "attributes": {
+                    "autocomplete": 'off'
                 },
                 "width": "10",
                 "charCheckLimit": {

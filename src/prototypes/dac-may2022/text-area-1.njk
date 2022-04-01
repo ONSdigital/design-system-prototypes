@@ -19,20 +19,19 @@ layout: dac-may2022/views/_master
     {% call onsQuestion({
         "title": "What do you think about this service?",
         "submitButton": {
-            "text": 'Send feedback'
+            "text": 'Continue'
         }
     }) %}
         {{
             onsTextarea({
                 "id": "feedback-textarea",
                 "name": "feedback-text",
-                "width": "30",
                 "label": {
                     "text": "Enter your feedback",
                     "description": "Do not include confidential information, such as your contact details"
                 },
                 "charCheckLimit": {
-                    "limit": 1000,
+                    "limit": 100,
                     "charCountSingular": "You have {x} character remaining",
                     "charCountPlural": "You have {x} characters remaining"
                 }

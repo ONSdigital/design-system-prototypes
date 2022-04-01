@@ -19,7 +19,9 @@ layout: dac-may2022/views/_master
     {% call onsQuestion({
         "title": 'What devices do you own?',
         "legendIsQuestionTitle": true,
-        "submitButton": true
+        "submitButton": {
+             "text": 'Continue'
+        }
     }) %}
         {{
             onsCheckboxes({

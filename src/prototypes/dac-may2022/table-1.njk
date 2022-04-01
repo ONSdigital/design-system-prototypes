@@ -3,32 +3,19 @@ title: Tabs and sortable and scrollable tables
 layout: dac-may2022/views/_master
 columns: 12
 ---
-{% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
-{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/table/_macro.njk" import onsTable %}
 {% from "components/tabs/_macro.njk" import onsTabs %}
 
 {% set prevPage = 'text-area-1' %}
-{% set form =  {
-    "method": "GET",
-    "attributes": {
-        "action":  pageInfo.rootPath + "/"
-    }
-} %}
-{% set pageConfig = {
-    "mainCol": {
-        "columns": '12'
-    }
-} %}
 
 {% block main %}
-
+    <h1>Tabs and tables example</h1>
     {% set tab1Content %}
     {{
         onsTable({
-            "variants": [ 'sortable' ],
-            "caption": "Sortable table",
+            "variants": 'sortable',
+            "caption": "Sortable table example",
             "sortBy": "Sort by",
             "ariaAsc": "ascending",
             "ariaDesc": "descending",
@@ -212,7 +199,7 @@ columns: 12
     {{
         onsTable({
             "variants": 'scrollable',
-            "caption": "Scrollable table",
+            "caption": "Scrollable table example",
             "ariaLabel": "There are 7 columns in this table. Some of the table may be off screen. Scroll or drag horizontally to bring into view.",
             "ths": [
                 {
@@ -370,7 +357,7 @@ columns: 12
 
     {{
         onsTabs({
-            "title": 'Tabs title',
+            "title": 'Contents',
             "tabs": [
                 {
                     "title": 'Sortable table',
@@ -381,6 +368,14 @@ columns: 12
                     "content": tab2Content
                 }
             ]
+        })
+    }}
+
+    {{
+        onsButton({
+            "text": 'Continue',
+            "classes": 'ons-u-mt-m',
+            "url": pageInfo.rootPath + '/guide-1.html'
         })
     }}
 {% endblock %}
