@@ -1,5 +1,5 @@
 ---
-title: Guide page table of contents
+title: Guide page table of contents (Page 2)
 layout: dac-may2022/views/_master
 ---
 {% from "components/button/_macro.njk" import onsButton %}
@@ -9,6 +9,7 @@ layout: dac-may2022/views/_master
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
 
 {% set prevPage = 'guide-2' %}
+{% set nextPage = pageInfo.rootPath + '/guide-4.html' %}
 
 {% block main %}
     <h1 class="ons-u-mb-l">
@@ -26,7 +27,7 @@ layout: dac-may2022/views/_master
             },
             "itemsList": [
                 {
-                    "url": pageInfo.rootPath + '/guide-2.html',
+                    "url": prevPage,
                     "text": 'Overview'
                 },
                 {
@@ -35,7 +36,7 @@ layout: dac-may2022/views/_master
                     "current": true
                 },
                 {
-                    "url": pageInfo.rootPath + '/guide-4.html',
+                    "url": nextPage,
                     "text": 'How your information is used'
                 },
                 {
@@ -53,13 +54,13 @@ layout: dac-may2022/views/_master
                     {
                         "rel": 'prev',
                         "text": 'Previous',
-                        "url": pageInfo.rootPath + '/guide-2.html',
+                        "url": prevPage,
                         "label": 'About the census'
                     },
                     {
                         "rel": 'next',
                         "text": 'Next',
-                        "url": pageInfo.rootPath + '/guide-4.html',
+                        "url": nextPage,
                         "label": 'How your information is used'
                     }
                     ]
@@ -67,4 +68,14 @@ layout: dac-may2022/views/_master
             }}
         </div>
     </section>
+
+    <div class="ons-u-mt-xl ons-u-bt">
+        {{
+            onsButton({
+                "text": 'Continue',
+                "classes": 'ons-u-mt-m',
+                "url": nextPage
+            })
+        }}
+    </div>
 {% endblock %}

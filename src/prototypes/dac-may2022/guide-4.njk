@@ -1,5 +1,5 @@
 ---
-title: Guide page table of contents
+title: Guide page table of contents (Page 3)
 layout: dac-may2022/views/_master
 ---
 {% from "components/button/_macro.njk" import onsButton %}
@@ -9,6 +9,7 @@ layout: dac-may2022/views/_master
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
 
 {% set prevPage = 'guide-3' %}
+{% set nextPage = pageInfo.rootPath + '/guide-5.html' %}
 
 {% block main %}
     <h1 class="ons-u-mb-l">
@@ -30,7 +31,7 @@ layout: dac-may2022/views/_master
                     "text": 'Overview'
                 },
                 {
-                    "url": pageInfo.rootPath + '/guide-3.html',
+                    "url": prevPage,
                     "text": 'Who should take part and why'
                 },
                 {
@@ -39,7 +40,7 @@ layout: dac-may2022/views/_master
                     "current": true
                 },
                 {
-                    "url": pageInfo.rootPath + '/guide-5.html',
+                    "url": nextPage,
                     "text": 'Past censuses in England and Wales'
                 }
             ]
@@ -65,13 +66,13 @@ layout: dac-may2022/views/_master
                     {
                         "rel": 'prev',
                         "text": 'Previous',
-                        "url": pageInfo.rootPath + '/guide-3.html',
+                        "url": prevPage,
                         "label": 'Who should take part and why'
                     },
                     {
                         "rel": 'next',
                         "text": 'Next',
-                        "url": pageInfo.rootPath + '/guide-5.html',
+                        "url": nextPage,
                         "label": 'Past censuses in England and Wales'
                     }
                     ]
@@ -79,4 +80,14 @@ layout: dac-may2022/views/_master
             }}
         </div>
     </section>
+
+    <div class="ons-u-mt-xl ons-u-bt">
+        {{
+            onsButton({
+                "text": 'Continue',
+                "classes": 'ons-u-mt-m',
+                "url": nextPage
+            })
+        }}
+    </div>
 {% endblock %}

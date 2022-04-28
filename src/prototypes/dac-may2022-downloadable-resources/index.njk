@@ -1,15 +1,17 @@
 ---
 group: Accessibility audit (DAC – May 2022)
-title: May 2022 – Various components and patterns
+title: May 2022 – Downloadble resources
 ---
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 {% set pageConfig = {
     "header": {
         "logoHref": '/',
         "titleLogoHref": pageInfo.rootPath + '#0'
     },
-    "title": "ONS components and patterns",
+    "title": "Downloadable resources example",
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
@@ -29,14 +31,15 @@ title: May 2022 – Various components and patterns
 } %}
 
 {% block main %}
-    <h1>Start prototype</h1>
-    <p>This prototype contains various ONS Design System components and patterns requiring an accessibility audit on all variants and options.</p>
-    <p>Use the persistent “continue” button at the end of each page to step through each component and pattern in the prototype.</p>
+    <h1>Downloadble resources</h1>
+
+    <p>This prototype contains the “Downloadable resources” pattern from the ONS Design System.</p>
+
     {{
         onsButton({
-            "text": "Start prototype",
+            "text": "View prototype",
             "classes": "ons-u-mt-s",
-            "url": pageInfo.rootPath + "/date-1.html"
+            "url": 'https://ons-design-system.netlify.app/patterns/download-resources/examples/download-resources/'
         })
     }}
 

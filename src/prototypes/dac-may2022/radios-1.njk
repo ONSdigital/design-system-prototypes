@@ -1,5 +1,5 @@
 ---
-title: Revealed text input and select
+title: Radios with revealed text input and select
 layout: dac-may2022/views/_master
 ---
 {% from "components/input/_macro.njk" import onsInput %}
@@ -7,11 +7,11 @@ layout: dac-may2022/views/_master
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}  
 
-{% set prevPage = 'checkboxes-3' %}
+{% set prevPage = 'text-area-1' %}
 {% set form =  {
     "method": "GET",
     "attributes": {
-        "action":  pageInfo.rootPath + "/radios-2.html"
+        "action":  pageInfo.rootPath + "/table-1.html"
     }
 } %}
 

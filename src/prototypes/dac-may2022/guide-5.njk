@@ -1,5 +1,5 @@
 ---
-title: Guide page table of contents
+title: Guide page table of contents (Page 4)
 layout: dac-may2022/views/_master
 ---
 {% from "components/button/_macro.njk" import onsButton %}
@@ -8,7 +8,8 @@ layout: dac-may2022/views/_master
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
 
-{% set prevPage = 'guide-3' %}
+{% set prevPage = 'guide-4' %}
+{% set nextPage = pageInfo.rootPath + '/news-1.html' %}
 
 {% block main %}
     <h1 class="ons-u-mb-l">
@@ -34,7 +35,7 @@ layout: dac-may2022/views/_master
                     "text": 'Who should take part and why'
                 },
                 {
-                    "url": pageInfo.rootPath + '/guide-4.html',
+                    "url": prevPage,
                     "text": 'How your information is used'
                 },
                 {
@@ -59,7 +60,7 @@ layout: dac-may2022/views/_master
                     {
                         "rel": 'prev',
                         "text": 'Previous',
-                        "url": pageInfo.rootPath + '/guide-4.html',
+                        "url": prevPage,
                         "label": 'How your information is used'
                     }
                     ]
@@ -68,12 +69,12 @@ layout: dac-may2022/views/_master
         </div>
     </section>
 
-    <div class="ons-container ons-u-mb-l ons-u-bt">
+    <div class="ons-u-mt-xl ons-u-bt">
     {{
         onsButton({
             "text": 'Continue',
             "classes": 'ons-u-mt-m',
-            "url": pageInfo.rootPath + '/guide-2.html'
+            "url": nextPage
         })
     }}
     </div>

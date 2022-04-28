@@ -1,23 +1,27 @@
 ---
 title: Simple accordion, revealed checkboxes and document list
 layout: dac-may2022/views/_master
+columns: 12
 ---
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "./components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/accordion/_macro.njk" import onsAccordion %}
+{% from "components/select/_macro.njk" import onsSelect %}
+{% from "components/document-list/_macro.njk" import onsDocumentList %}
+{% from "components/input/_macro.njk" import onsInput %}
 
-{% set prevPage = 'checkboxes-2' %}
+{% set prevPage = 'table-1' %}
+{% set nextPage = pageInfo.rootPath + "/guide-1.html" %}
 {% set form =  {
     "method": "GET",
     "attributes": {
-        "action":  pageInfo.rootPath + "/radios-1.html"
+        "action": nextPage
     }
 } %}
 
 {% block main %}
-    <h1 class="ons-u-fs-m">Filter results</h1>
 
 
     {% set content1 %}
@@ -347,13 +351,34 @@ layout: dac-may2022/views/_master
     }}
     {% endset %}
 
+    <h1 class="ons-u-fs-xxl ons-u-mb-l">Search</h1>
+
+    <div class="ons-u-mb-l">
+        {{
+            onsInput({
+                "id": 'search-field',
+                "label": {
+                    'text': 'Search'
+                },
+                "value": 'crime',
+                "width": '30',
+                "accessiblePlaceholder": true,
+                "searchButton": {
+                    "text": '',
+                    "iconType": 'search'
+                }
+            })
+        }}
+    </div>
+
     <div class="ons-grid">
-        <div class="ons-grid__col ons-col-6@xs">
+        <div class="ons-grid__col ons-col-3@xs">
+            <h2 class="ons-u-fs-r--b ons-u-mt-xs ons-u-mb-m">Filter results</h2>
             {{
                 onsAccordion({
                     "id": "accordion",
+                    "classes": 'ons-js-adv-filter',
                     "variants": "simple",
-                    "open": true,
                     "itemsList": [
                         {
                             "title": "Content type",
@@ -366,12 +391,113 @@ layout: dac-may2022/views/_master
                     ]
                 })
             }}
-            {{
-                onsButton({
-                    "text": 'Continue',
-                    "classes": 'ons-u-mt-m'
-                })
-            }}
         </div>
+
+        <div class="ons-grid__col ons-col-8@xs ons-push-1@xs">
+            <div class="ons-adv-filter__results-options ons-u-bb ons-u-pb-s ons-u-mb-s">
+                <div class="ons-adv-filter__results-count">
+                    <span class="ons-u-mb-l"><em>4</em> results for “<em>crime</em>”</span>
+                </div>
+                <div class="ons-adv-filter__results-sort">
+                    {{
+                        onsSelect({
+                            "id": "select",
+                            "name": "select",
+                            "classes": "ons-u-wa--@xxs",
+                            "label": {
+                                "text": "Sort by",
+                                "inline": true
+                            },
+                            "options": [
+                                {
+                                    "value": "best-match",
+                                    "text": "Best match",
+                                    "selected": true
+                                },
+                                {
+                                    "value": "latest",
+                                    "text": "Latest"
+                                }
+                            ]
+                        })
+                    }}
+                </div>
+            </div>
+            {{ onsDocumentList({
+                "documents": [
+                    {
+                        "featured": true,
+                        "showMetadataFirst": true,
+                        "url": '#0',
+                        "title": 'Crime and justice',
+                        "metadata": {
+                            "type": {
+                                "text": 'Topic'
+                            }
+                        },
+                        "description": '<p>Figures on <em class="ons-highlight">crime</em> levels and trends for England and Wales based primarily on two sets of statistics: the <em class="ons-highlight">Crime</em> Survey for England and Wales (CSEW) and police recorded <em class="ons-highlight">crime</em> data.</p>
+                        <p>View all <a href="#0">datasets</a> or <a href="#0">publications</a> related to <a href="#0">Crime and justice</a></p>'
+                    },
+                    {
+                        "url": '#0',
+                        "title": 'Disability and crime',
+                        "metadata": {
+                            "type": {
+                                "text": 'Dataset'
+                            },
+                            "date": {
+                                "prefix": 'Released',
+                                "showPrefix": true,
+                                "iso": '2021-02-18',
+                                "short": '18 February 2021'
+                            }
+                        },
+                        "description": '<p>Domestic abuse and sexual assault outcomes for disabled people in England and Wales aged 16 to 59 years, with analysis by age, sex, impairment type, impairment severity, country and region using the <em class="ons-highlight">Crime</em> Survey for England and Wales (CSEW) data.</p>'
+                    },
+                    {
+                        "url": '#0',
+                        "title": 'Disability and crime, UK: 2019 (Latest release)',
+                        "metadata": {
+                            "type": {
+                                "text": 'Statistical bulletin'
+                            },
+                            "date": {
+                                "prefix": 'Released',
+                                "showPrefix": true,
+                                "iso": '2019-12-01',
+                                "short": '2 December 2019'
+                            }
+                        },
+                        "description": '<p>An overview of published data on disability and <em class="ons-highlight">crime</em> in the UK and analysis of the experience of domestic abuse and sexual assault for disabled adults aged 16 to 59 years in England and Wales. Analysis by age, sex and impairment type.</p>'
+                    },
+                    {
+                        "url": '#0',
+                        "title": 'Hate crime by disability status, Crime Survey for England and Wales (CSEW) combined years 2013 and 2014 to 2015 and 2016',
+                        "metadata": {
+                            "type": {
+                                "text": 'User requested data',
+                                "ref": 'Ref 008052'
+                            },
+                            "date": {
+                                "prefix": 'Released',
+                                "showPrefix": true,
+                                "iso": '2017-04-20',
+                                "short": '20 April 2017'
+                            }
+                        }
+                    }
+                ]
+            }) }}
+        </div>
+    </div>
+
+    <div class="ons-u-mb-l ons-u-mt-xl ons-u-bt">
+        {{
+            onsButton({
+                "text": 'Continue',
+                "classes": 'ons-u-mt-m',
+                "url": nextPage
+            })
+        }}
     </div>
 {% endblock %}

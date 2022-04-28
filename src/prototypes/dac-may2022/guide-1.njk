@@ -10,7 +10,8 @@ columns: 12
 {% from "components/table/_macro.njk" import onsTable %}
 {% from "components/share-page/_macro.njk" import onsSharePage %}
 
-{% set prevPage = 'table-1' %}
+{% set prevPage = 'checkboxes-3' %}
+{% set nextPage = pageInfo.rootPath + "/guide-2.html" %}
 
 {% block pageContent %}
     <div class="ons-page__container ons-container">
@@ -276,12 +277,12 @@ columns: 12
         </main>
     </div>
 
-    <div class="ons-container ons-u-mb-l ons-u-bt">
+    <div class="ons-container ons-u-mb-l ons-u-mt-l ons-u-bt">
     {{
         onsButton({
             "text": 'Continue',
             "classes": 'ons-u-mt-m',
-            "url": pageInfo.rootPath + '/guide-2.html'
+            "url": nextPage
         })
     }}
     </div>

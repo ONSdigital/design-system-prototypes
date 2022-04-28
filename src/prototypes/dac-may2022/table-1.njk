@@ -7,7 +7,8 @@ columns: 12
 {% from "components/table/_macro.njk" import onsTable %}
 {% from "components/tabs/_macro.njk" import onsTabs %}
 
-{% set prevPage = 'text-area-1' %}
+{% set prevPage = 'radios-1' %}
+{% set nextPage = pageInfo.rootPath + "/checkboxes-3.html" %}
 
 {% block main %}
     <h1>Tabs and tables example</h1>
@@ -371,11 +372,13 @@ columns: 12
         })
     }}
 
-    {{
-        onsButton({
-            "text": 'Continue',
-            "classes": 'ons-u-mt-m',
-            "url": pageInfo.rootPath + '/guide-1.html'
-        })
-    }}
+    <div class="ons-u-mb-l ons-u-mt-xl ons-u-bt">
+        {{
+            onsButton({
+                "text": 'Continue',
+                "classes": 'ons-u-mt-m',
+                "url": nextPage
+            })
+        }}
+    </div>
 {% endblock %}

@@ -1,0 +1,53 @@
+---
+title: Address input
+layout: dac-may2022/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/address-input/_macro.njk" import onsAddressInput %}
+
+{% set prevPage = 'checkboxes-1' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/mutually-exclusive-1.html"
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": 'What is your address?',
+        "submitButton": {
+            "text": 'Continue'
+        }
+    }) %}
+
+        {{ onsAddressInput({
+            "id": "address",
+            "dontWrap": true,
+            "manualEntry": true,
+            "attributes": {
+                "required": true
+            },
+            "label": {
+                "text": "Enter address or postcode and select from results",
+                "id": "address-label"
+            },
+            "line1": {
+                "label": "Address line 1",
+                "value": "1 The High Street"
+            },
+            "line2": {
+                "label": "Address line 2"
+            },
+            "town": {
+                "label": "Town or city"
+            },
+            "postcode": {
+                "label": "Postcode"
+            }
+        }) }}
+
+    {% endcall %}
+{% endblock %}

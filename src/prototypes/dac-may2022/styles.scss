@@ -57,3 +57,38 @@ Do not remove. Required for dynamic generation of survey summary page
 .ons-u-va-b {
   vertical-align: bottom;
 }
+
+// Search
+.ons-search__input {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 512px;
+}
+.ons-search__btn {
+  margin-left: 0;
+
+  .ons-btn__inner {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: none;
+    margin-top: 3px;
+    padding: .6em .8em;
+
+    .ons-svg-icon {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+// Downloadable Resources
+.ons-adv-filter__results-options {
+  margin-top: 2px;
+  padding-bottom: 20px;
+}
+
+code {
+  background: $color-grey-5;
+  color: $color-ruby-red;
+  padding: 0.05rem 0.25rem;
+}

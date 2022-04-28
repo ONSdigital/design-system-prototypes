@@ -7,11 +7,11 @@ layout: dac-may2022/views/_master
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "./components/checkboxes/_macro.njk" import onsCheckboxes %}  
 
-{% set prevPage = 'checkboxes-1' %}
+{% set prevPage = 'prefix-1' %}
 {% set form =  {
     "method": "GET",
     "attributes": {
-        "action":  pageInfo.rootPath + "/checkboxes-3.html"
+        "action":  pageInfo.rootPath + "/checkboxes-1.html"
     }
 } %}
 

@@ -9,6 +9,7 @@ layout: dac-may2022/views/_master
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
 
 {% set prevPage = 'guide-1' %}
+{% set nextPage = pageInfo.rootPath + "/guide-3.html" %}
 
 {% block main %}
     <h1 class="ons-u-mb-l">
@@ -30,7 +31,7 @@ layout: dac-may2022/views/_master
                     "current": true
                 },
                 {
-                    "url": pageInfo.rootPath + '/guide-3.html',
+                    "url": nextPage,
                     "text": 'Who should take part and why'
                 },
                 {
@@ -52,7 +53,7 @@ layout: dac-may2022/views/_master
                     {
                         "rel": 'next',
                         "text": 'Next',
-                        "url": pageInfo.rootPath + '/guide-3.html',
+                        "url": nextPage,
                         "label": 'Who should take part and why'
                     }
                     ]
@@ -60,4 +61,14 @@ layout: dac-may2022/views/_master
             }}
         </div>
     </section>
+
+    <div class="ons-u-mt-xl ons-u-bt">
+        {{
+            onsButton({
+                "text": 'Continue',
+                "classes": 'ons-u-mt-m',
+                "url": nextPage
+            })
+        }}
+    </div>
 {% endblock %}
