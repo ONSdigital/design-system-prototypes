@@ -1,7 +1,8 @@
 ---
-title: Simple accordion, revealed checkboxes and document list
+title: Search, simple accordion, revealed checkboxes and document list
 layout: dac-may2022/views/_master
 columns: 12
+version: 48.0.3
 ---
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
@@ -10,14 +11,14 @@ columns: 12
 {% from "components/accordion/_macro.njk" import onsAccordion %}
 {% from "components/select/_macro.njk" import onsSelect %}
 {% from "components/document-list/_macro.njk" import onsDocumentList %}
-{% from "components/input/_macro.njk" import onsInput %}
 
 {% set prevPage = 'table-1' %}
 {% set nextPage = pageInfo.rootPath + "/guide-1.html" %}
 {% set form =  {
     "method": "GET",
     "attributes": {
-        "action": nextPage
+        "action":  "#0",
+        "onsubmit": "window.location.reload();"
     }
 } %}
 
@@ -147,7 +148,7 @@ columns: 12
             "legendClasses": "ons-u-vh",
             "checkboxesLabel": "Show only:",
             "borderless": true,
-            "name": "dietary",
+            "name": "topic",
             "checkboxes": [
                 {
                     "id": "business",
@@ -358,7 +359,7 @@ columns: 12
             onsInput({
                 "id": 'search-field',
                 "label": {
-                    'text': 'Search'
+                    "text": 'Search'
                 },
                 "value": 'crime',
                 "width": '30',
@@ -373,11 +374,13 @@ columns: 12
 
     <div class="ons-grid">
         <div class="ons-grid__col ons-col-3@xs">
-            <h2 class="ons-u-fs-r--b ons-u-mt-xs ons-u-mb-m">Filter results</h2>
+            <h2 class="ons-u-fs-r--b ons-u-mt-xs ons-u-mb-s">Filter results</h2>
+            <button class="ons-adv-filter__reset ons-js-adv-filter__reset ons-btn ons-btn--secondary ons-btn--small" type="reset"><span class="ons-btn__inner">Reset all filters</span></button>
+
             {{
                 onsAccordion({
                     "id": "accordion",
-                    "classes": 'ons-js-adv-filter',
+                    "classes": 'ons-u-mt-m ons-u-mb-s',
                     "variants": "simple",
                     "itemsList": [
                         {

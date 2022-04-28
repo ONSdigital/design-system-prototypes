@@ -59,14 +59,18 @@ Do not remove. Required for dynamic generation of survey summary page
 }
 
 // Search
-.ons-search__input {
-  border-right: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  width: 512px;
-}
-.ons-search__btn {
-  margin-left: 0;
+.ons-search {
+  margin-top: 0;
+
+  &__input {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 512px;
+  }
+  &__btn {
+    margin-left: 0;
+  }
 
   .ons-btn__inner {
     border-top-left-radius: 0;
