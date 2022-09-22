@@ -1,0 +1,79 @@
+---
+group: Accessibility audit (DAC – September 2022)
+title: September 2022 – Multi-level site navigation
+---
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% set pageConfig = {
+    "header": {
+        "logoHref": '/',
+        "titleLogoHref": pageInfo.rootPath + '#0'
+    },
+    "title": "Multi-level site navigation example",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            {
+                "text": 'Prototypes',
+                "url": '/'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    <h1>Website navigation</h1>
+    <h2>Website multi level navigation prototype</h2>
+    <p>This prototype contains multi-level website navigation menu.</p>
+
+    <p>The sub-navigation menu becomes collapsible on mobile and desktop devices, showing the child pages of that section.</p>
+
+    {{
+        onsButton({
+            "text": "View multi level prototype",
+            "classes": "ons-u-mt-s ons-u-mb-xl",
+            "variants": ['secondary', 'small'],
+            "url": 'https://ons-design-system.netlify.app/components/header/examples/header-external-with-sub-navigation/'
+        })
+    }}
+
+    <h2>Website vertical navigation prototype</h2>
+    <p>This prototype contains a vertical navigation menu.</p>
+
+    {{
+        onsButton({
+            "text": "View vertical navigation prototype",
+            "classes": "ons-u-mt-s ons-u-mb-xl",
+            "variants": ['secondary', 'small'],
+            "url": 'https://ons-design-system.netlify.app/guidance'
+        })
+    }}
+
+
+    <h2>Cards navigation prototype</h2>
+    <p>This prototype contains "cards" that are used for navigation</p>
+
+    {{
+        onsButton({
+            "text": "View cards navigation prototype",
+            "classes": "ons-u-mt-s ons-u-mb-xl",
+            "variants": ['secondary', 'small'],
+            "url": 'https://ons-design-system.netlify.app'
+        })
+    }}
+
+    <script>
+        sessionStorage.clear()
+    </script>
+
+    <link rel="stylesheet" href="/prototypes/dac-september2022/styles.css" />
+{% endblock %}

@@ -1,0 +1,60 @@
+---
+title: Prefixed input with hint text
+layout: dac-september2022/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% set prevPage = 'input-1' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/checkboxes-2.html"
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": 'What is your annual salary?',
+        "submitButton": {
+            "text": 'Continue'
+        }
+    }) %}
+        {{
+            onsInput({
+                "id": "prefixed-with-hint",
+                "type": "number",
+                "width": "6",
+                "autocomplete": "off",
+                "label": {
+                    "text": "Your annual salary before taxes",
+                    "description": "Enter the full value (e.g. 56,234.33) or a value to the nearest £thousand (e.g. 56,000). Do not enter ‘56’ for £56,000. Enter '0', rather than leave blank."
+                },
+                "prefix": {
+                    "title": "British pounds (GBP)",
+                    "text": "£",
+                    "id": "annual-salary-gpb-prefix"
+                }
+            })
+        }}
+
+        {{
+            onsInput({
+                "id": "prefixed-no-hint",
+                "type": "number",
+                "width": "6",
+                "autocomplete": "off",
+                "label": {
+                    "text": "Your annual salary after taxes"
+                },
+                "prefix": {
+                    "title": "British pounds (GBP)",
+                    "text": "£",
+                    "id": "annual-salary-gpb-prefix-after-tax"
+                }
+            })
+        }}
+    {% endcall %}
+{% endblock %}
