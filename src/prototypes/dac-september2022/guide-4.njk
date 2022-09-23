@@ -1,0 +1,93 @@
+---
+title: Guide page table of contents (Page 3)
+layout: dac-september2022/views/_master
+---
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{% set prevPage = 'guide-3' %}
+{% set nextPage = pageInfo.rootPath + '/guide-5.html' %}
+
+{% block main %}
+    <h1 class="ons-u-mb-l">
+        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">About the census</span> 
+        <span class="ons-u-vh">: </span>
+        <span class="ons-u-fs-xxl ons-u-db">How your information is used</span>
+    </h1>
+    {{-
+        onsTableOfContents({
+            "ariaLabel": "Pages in this guide",
+            "title": "Contents",
+            "skipLink": {
+                "url": "#section-content",
+                "text": "Skip to guide content"
+            },
+            "itemsList": [
+                {
+                    "url": pageInfo.rootPath + '/guide-2.html',
+                    "text": 'Overview'
+                },
+                {
+                    "url": prevPage,
+                    "text": 'Who should take part and why'
+                },
+                {
+                    "url": pageInfo.rootPath + '/guide-4.html',
+                    "text": 'How your information is used',
+                    "current": true
+                },
+                {
+                    "url": nextPage,
+                    "text": 'Past censuses in England and Wales'
+                }
+            ]
+        })
+    }}
+    <section id="section-content" class="ons-page__body">
+        <p>Any personal information you give us will be made anonymous and will not identify you or anyone you live with. Personal information includes things like your name, date of birth and address.</p>
+        
+        <p>We ask for names and dates of birth to help us make sure we only count each person once.</p>
+
+        <p>The census information you give is only used for statistical purposes. Our statistics do not contain any information that will identify you. No one can tell who you are from the statistics we publish.</p>
+
+        <h2>Your personal census information cannot be used by government</h2>
+
+        <p>Only carefully selected and approved staff can access your personal census information. Approved staff use the information for statistical purposes only.</p>
+
+        <p>All our systems, staff and suppliers, and the way we do things follow strict government standards, and your confidentiality is protected by law. It’s a crime for anyone to share personal census information unless required or permitted by law.</p>
+
+        <div class="ons-u-mt-xl">
+            {{-
+            onsContentPagination({
+                "contentPaginationItems": [
+                    {
+                        "rel": 'prev',
+                        "text": 'Previous',
+                        "url": prevPage,
+                        "label": 'Who should take part and why'
+                    },
+                    {
+                        "rel": 'next',
+                        "text": 'Next',
+                        "url": nextPage,
+                        "label": 'Past censuses in England and Wales'
+                    }
+                    ]
+                })
+            }}
+        </div>
+    </section>
+
+    <div class="ons-u-mt-xl ons-u-bt">
+        {{
+            onsButton({
+                "text": 'Continue',
+                "classes": 'ons-u-mt-m',
+                "url": nextPage
+            })
+        }}
+    </div>
+{% endblock %}

@@ -1,0 +1,103 @@
+---
+group: Accessibility audit (DAC – September 2022)
+title: September 2022 – Accordions
+---
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% set pageConfig = {
+    "header": {
+        "logoHref": '/',
+        "titleLogoHref": pageInfo.rootPath + '#0'
+    },
+    "title": "Revised Accordion implementation",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            {
+                "text": 'Prototypes',
+                "url": '/'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    <h1>Accordion</h1>
+
+    <p>This prototype contains two variations of the ONS Accordion component.</p>
+    {{
+        onsList({
+            "element": 'ol',
+            "itemsList": [
+                {
+                    "text": 'current implementation (revised August 2022)'
+                },
+                {
+                    "text": '“simple” variant (no button)'
+                }
+            ]
+        })
+    }}
+
+
+    <h2>1. Current accordion implementation (revised August 2022)</h2>
+
+     <p>To address the {{
+        onsExternalLink({
+            "url": "https://github.com/alphagov/govuk-design-system-backlog/issues/1#issuecomment-995675898",
+            "linkText": "accessibility concerns discovered by the design system team at GDS"
+        })
+    }}, the following changes have been made to the revised implementation:</p>
+
+    {{
+        onsList({
+            "itemsList": [
+                {
+                    "text": 'removed underline to avoid looking like a link to another page'
+                },
+                {
+                    "text": 'replaced div elements with the HTML5 Details Disclosure element to improve semantics'
+                },
+                {
+                    "text": 'removed the show/hide button from each accordion item as we found they weren’t being used to interact with the component'
+                }
+            ]
+        })
+    }}
+
+    {{
+        onsButton({
+            "text": "View current accordion",
+            "variants": ['secondary', 'small'],
+            "classes": "ons-u-mb-xl",
+            "url": 'https://ons-design-system.netlify.app/components/accordion/examples/accordion/'
+        })
+    }}
+
+    <h2>2. “Simple” variant accordion implementation</h2>
+
+    <p>We have developed the current accordion to create a simplified variant for use in cases where there isn’t room for the show/hide buttons, such as filters.</p>
+
+    {{
+        onsButton({
+            "text": "View simple accordion",
+            "variants": ['secondary', 'small'],
+            "url": 'https://ons-design-system.netlify.app/components/accordion/examples/accordion-open/'
+        })
+    }}
+
+    <script>
+        sessionStorage.clear()
+    </script>
+
+    <link rel="stylesheet" href="/prototypes/dac-september2022/styles.css" />
+{% endblock %}

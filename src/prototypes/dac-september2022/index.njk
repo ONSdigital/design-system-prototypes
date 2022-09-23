@@ -1,0 +1,48 @@
+---
+group: Accessibility audit (DAC – September 2022)
+title: September 2022 – Various components and patterns
+---
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "header": {
+        "logoHref": '/',
+        "titleLogoHref": pageInfo.rootPath + '#0'
+    },
+    "title": "ONS components and patterns",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            {
+                "text": 'Prototypes',
+                "url": '/'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    <h1>Start prototype</h1>
+    <p>This prototype contains various ONS Design System components and patterns requiring an accessibility audit on all variants and options.</p>
+    <p>Use the persistent “continue” button at the end of each page to step through each component and pattern in the prototype.</p>
+    {{
+        onsButton({
+            "text": "Start prototype",
+            "classes": "ons-u-mt-s",
+            "url": pageInfo.rootPath + "/date-1.html"
+        })
+    }}
+
+    <script>
+        sessionStorage.clear()
+    </script>
+
+    <link rel="stylesheet" href="/prototypes/dac-september2022/styles.css" />
+{% endblock %}

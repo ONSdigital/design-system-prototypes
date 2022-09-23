@@ -1,0 +1,160 @@
+---
+title: Radios with revealed text input and select
+layout: dac-september2022/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}  
+
+{% set prevPage = 'text-area-1' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/table-1.html"
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": 'Find a support centre',
+        "legendIsQuestionTitle": true,
+        "submitButton": {
+            "text": 'Continue'
+        }
+    }) %}
+        {{
+            onsRadios({
+                "dontWrap": true,
+                "name": "live",
+                "radios": [
+                    {
+                        "id": "search-by-postcode",
+                        "label": {
+                            "text": "Search by postcode"
+                        },
+                        "value": "search-by-postcode",
+                        "other": {
+                            "id": "postode",
+                            "name": "postode",
+                            "label": {
+                                "text": "Enter postcode"
+                            }
+                        }
+                    },
+                    {
+                        "id": "local-authority",
+                        "label": {
+                            "text": "Browse by local authority"
+                        },
+                        "value": "local-authority",
+                        "other": {
+                            "otherType": "select",
+                            "id": "local-authority-select",
+                            "name": "local-authority",
+                            "label": {
+                                "text": "Select local authority"
+                            },
+                            "options": [
+                                {
+                                    "value": "",
+                                    "text": "Select an option",
+                                    "disabled": true,
+                                    "selected": true
+                                },
+                                {
+                                    "value": "Blaenau Gwent",
+                                    "text": "Blaenau Gwent"
+                                },
+                                {
+                                    "value": "Bridgend",
+                                    "text": "Bridgend"
+                                },
+                                {
+                                    "value": "Caerphilly",
+                                    "text": "Caerphilly"
+                                },
+                                {
+                                    "value": "Cardiff",
+                                    "text": "Cardiff"
+                                },
+                                {
+                                    "value": "Carmarthenshire",
+                                    "text": "Carmarthenshire"
+                                },
+                                {
+                                    "value": "Ceredigion",
+                                    "text": "Ceredigion"
+                                },
+                                {
+                                    "value": "Conwy",
+                                    "text": "Conwy"
+                                },
+                                {
+                                    "value": "Denbighshire",
+                                    "text": "Denbighshire"
+                                },
+                                {
+                                    "value": "Flintshire",
+                                    "text": "Flintshire"
+                                },
+                                {
+                                    "value": "Gwynedd",
+                                    "text": "Gwynedd"
+                                },
+                                {
+                                    "value": "Isle of Anglesey",
+                                    "text": "Isle of Anglesey"
+                                },
+                                {
+                                    "value": "Merthyr Tydfil",
+                                    "text": "Merthyr Tydfil"
+                                },
+                                {
+                                    "value": "Monmouthshire",
+                                    "text": "Monmouthshire"
+                                },
+                                {
+                                    "value": "Neath Port Talbot",
+                                    "text": "Neath Port Talbot"
+                                },
+                                {
+                                    "value": "Newport",
+                                    "text": "Newport"
+                                },
+                                {
+                                    "value": "Pembrokeshire",
+                                    "text": "Pembrokeshire"
+                                },
+                                {
+                                    "value": "Powys",
+                                    "text": "Powys"
+                                },
+                                {
+                                    "value": "Rhondda Cynon Taf",
+                                    "text": "Rhondda Cynon Taf"
+                                },
+                                {
+                                    "value": "Swansea",
+                                    "text": "Swansea"
+                                },
+                                {
+                                    "value": "Torfaen",
+                                    "text": "Torfaen"
+                                },
+                                {
+                                    "value": "Vale of Glamorgan",
+                                    "text": "Vale of Glamorgan"
+                                },
+                                {
+                                    "value": "Wrexham",
+                                    "text": "Wrexham"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+{% endblock %}

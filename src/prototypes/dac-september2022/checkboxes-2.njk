@@ -1,0 +1,69 @@
+---
+title: Select all checkboxes
+layout: dac-september2022/views/_master
+---
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}  
+
+{% set prevPage = 'prefix-1' %}
+{% set form =  {
+    "method": "GET",
+    "attributes": {
+        "action":  pageInfo.rootPath + "/checkboxes-1.html"
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": 'What devices do you own?',
+        "legendIsQuestionTitle": true,
+        "submitButton": {
+             "text": 'Continue'
+        }
+    }) %}
+        {{
+            onsCheckboxes({
+                "checkboxesLabel": 'Select all that apply',
+                "dontWrap": true,
+                "name": 'devices',
+                "autoSelect": {
+                    "selectAllText": "Select all",
+                    "unselectAllText": "Unselect all",
+                    "context": "following checkboxes"
+                },
+                "checkboxes": [
+                    {
+                        "id": "mobile-phone",
+                        "label": {
+                            "text": "Mobile phone"
+                        },
+                        "value": "mobile-phone"
+                    },
+                    {
+                        "id": "tablet",
+                        "label": {
+                            "text": "Tablet"
+                        },
+                        "value": "tablet"
+                    },
+                    {
+                        "id": "laptop",
+                        "label": {
+                            "text": "Laptop"
+                        },
+                        "value": "laptop"
+                    },
+                    {
+                        "id": "desktop",
+                        "label": {
+                            "text": "Desktop computer"
+                        },
+                        "value": "desktop"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+{% endblock %}
