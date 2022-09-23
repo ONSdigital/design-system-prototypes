@@ -33,7 +33,7 @@ title: September 2022 – Accordions
 {% block main %}
     <h1>Accordion</h1>
 
-    <p>This prototype contains three different implementations of the ONS Accordion component for comparison.</p>
+    <p>This prototype contains two variations of the ONS Accordion component.</p>
     {{
         onsList({
             "element": 'ol',
@@ -50,6 +50,29 @@ title: September 2022 – Accordions
 
 
     <h2>1. Current accordion implementation (revised August 2022)</h2>
+
+     <p>To address the {{
+        onsExternalLink({
+            "url": "https://github.com/alphagov/govuk-design-system-backlog/issues/1#issuecomment-995675898",
+            "linkText": "accessibility concerns discovered by the design system team at GDS"
+        })
+    }}, the following changes have been made to the revised implementation:</p>
+
+    {{
+        onsList({
+            "itemsList": [
+                {
+                    "text": 'removed underline to avoid looking like a link to another page'
+                },
+                {
+                    "text": 'replaced div elements with the HTML5 Details Disclosure element to improve semantics'
+                },
+                {
+                    "text": 'removed the show/hide button from each accordion item as we found they weren’t being used to interact with the component'
+                }
+            ]
+        })
+    }}
 
     {{
         onsButton({
