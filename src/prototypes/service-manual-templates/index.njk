@@ -1,0 +1,365 @@
+---
+group: Service manual templates
+title: Brand guidelines – Typography
+---
+{% from "./components/table/_macro.njk" import onsTable %}
+
+
+{% set pageConfig = {
+    "header": {
+        "logoHref": '/',
+        "titleLogoHref": pageInfo.rootPath + '#0'
+    },
+    "title": "Brand guidelines – Typography",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    },
+    "MainColumn": {
+      "columns": 12
+    }
+} %}
+
+{% block pageContent %}
+<div class="ons-container">
+    <div class="ons-grid">
+        <div class="ons-grid__col ons-col-3@l ons-u-mt-xl ons-u-mb-l ons-u-d-no@xxs@l"><div class="ons-u-mb-l"><nav class="ons-section-nav ons-section-nav--vertical" id="section-menu.id.125" aria-label="Section menu"><ul class="ons-section-nav__list"><li class="ons-section-nav__item"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/logo">Logo</a></li><li class="ons-section-nav__item ons-section-nav__item--active"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/typography" aria-current="location">Typography</a><ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs"><li class="ons-section-nav__item ons-list__item"><a href="/brand-guidelines/brand-elements/typography#ons-typefaces" class="ons-section-nav__link ons-list__link">ONS typefaces</a></li><li class="ons-section-nav__item ons-list__item"><a href="/brand-guidelines/brand-elements/typography#applying-our-typography" class="ons-section-nav__link ons-list__link">Applying our typography</a></li><li class="ons-section-nav__item ons-list__item"><a href="/brand-guidelines/brand-elements/typography#examples" class="ons-section-nav__link ons-list__link">Examples</a></li></ul></li><li class="ons-section-nav__item"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/colours">Colours</a></li><li class="ons-section-nav__item"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/visual-concept">Visual concept</a></li><li class="ons-section-nav__item"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/iconography">Iconography</a></li><li class="ons-section-nav__item"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/illustration">Illustration</a></li><li class="ons-section-nav__item"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/photography">Photography</a></li><li class="ons-section-nav__item"><a class="ons-section-nav__link" href="/brand-guidelines/brand-elements/videography">Videography</a></li></ul></nav></div></div>
+        <div class="ons-grid__col ons-col-9@l">
+            <main id="main-content" class="ons-page__main ons-u-mb-l">
+                <h1>Typography</h1>
+                <h2>Applying our typography</h2>
+                <h3 id="ons-typefaces">Type styles</h3>
+                <p>We've developed a set of typography styles that can be applied to documents showcasing how we intend to build hierarchy and recognition. Our styles are intended to create impactful, informative statements and content that's easy to skim.</p>
+                <p>Working best on white background, our type styles are designed for use on standard A4 text-heavy materials such as reports, letters and handbooks. When you need to use a coloured background, it is recommended that text should be white.</p>
+                <p>Always maintain the relationship between the text size and leading (the space between lines of text) as this enhances the legibility of your content.</p>
+                <p>These sizes may need to be adjusted according to the content and format of the document. For digital products, follow the guidance on the <a href="#0">design system typography page</a>.</p>
+                {{
+                    onsTable({
+                        "variants": 'scrollable',
+                        "ths": [
+                            {
+                                "value": "Element"
+                            },
+                            {
+                                "value": "Font weight"
+                            },
+                            {
+                                "value": "Size"
+                            },
+                            {
+                                "value": "Leading"
+                            },
+                            {
+                                "value": "Tracking"
+                            }
+                        ],
+                        "trs": [
+                            {
+                                "tds": [
+                                    {
+                                        "value": "Title",
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 48px; font-weight: bold; color: #003c57;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Bold",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "36pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": "Subtitle",
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 48px; font-weight: bold; color: #00a3a6;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Bold",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "36pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": "Heading 1",
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 32px; font-weight: bold; color: #003c57;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Bold",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "36pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": "Heading 2",
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 24px; font-weight: bold; color: #003c57;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Bold",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "36pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": "Heading 3",
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 18.6px; font-weight: 500; color: #003c57;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Bold",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "36pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": "Heading 4",
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 16px; font-weight: 500; color: #003c57;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Bold",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "36pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": "Body copy",
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 16px; font-weight: Regular; color: #222;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Regular",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "18pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": '<ul class="ons-u-mb-no"><li><span style="color:#222;">bulletted list item</span></li><li class="ons-u-mb-no"><span style="color:#222;">bulletted list item</span></li></ul>',
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 16px; font-weight: Regular; color: #00a3a6;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Regular",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "18pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": '“Short quote”',
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 48px; font-weight: bold; color: #00a3a6;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Regular",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "18pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": '<div style="padding-left: 10px; border-left: 3px solid #00a3a6">“Long quote”</div>',
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 22px; font-weight: regular; color: #222;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Regular",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "18pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            },
+                            {
+                                "tds": [
+                                    {
+                                        "value": '<span style="transform: rotate(90deg); text-transform: uppercase;">Product code</span>',
+                                        "data": "Element",
+                                        "attributes": {
+                                            "style": 'font-size: 16px; font-weight: regular; color: #222;'
+                                        }
+                                    },
+                                    {
+                                        "value": "Regular",
+                                        "data": "Font style"
+                                    },
+                                    {
+                                        "value": "18pt",
+                                        "data": "Size"
+                                    },
+                                    {
+                                        "value": "44pt",
+                                        "data": "Leading"
+                                    },
+                                    {
+                                        "value": "-10VA",
+                                        "data": "Tracking"
+                                    }
+                                ]
+                            }
+                        ]
+                    })
+                }}
+            </main>
+        </div>
+    </div>
+</div>
+{% endblock %}
